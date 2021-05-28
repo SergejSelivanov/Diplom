@@ -1,0 +1,58 @@
+﻿<Window x:Class="LIS_Labtech.TheoryChooseWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LIS_Labtech"
+        mc:Ignorable="d"
+xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Директор по исследованиям" Height="600" Width="700" Icon="Resources/LisLogo.png" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid Background="#61D89F">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <!--Profile button-->
+            <Separator Grid.Row="0" VerticalAlignment="Bottom" Background="WhiteSmoke" Width="20"/>
+            <Button Grid.Row="0" x:Name="ButtonExit" Click="ButtonExit_Click" HorizontalAlignment="Right" Margin="0,2,0,3" Width="50">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Height" Value="50"/>
+                        <Setter Property="Background" Value="LightGray"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Ellipse Width="30" Height="30" Stretch="UniformToFill" Stroke="White" StrokeThickness="2">
+                                        <Ellipse.Fill>
+                                            <ImageBrush ImageSource="Resources/CloseLogo.png"/>
+                                        </Ellipse.Fill>
+                                    </Ellipse>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </Grid>
+        <Grid Grid.Column="1" Background="#8AECBD">
+            <Grid>
+                <Border CornerRadius="20" Margin="30" Background="White" VerticalAlignment="Center" Padding="10">
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="60" Color="LightGray" ShadowDepth="1" />
+                    </Border.Effect>
+                    <RichTextBox  x:Name="Rich" IsReadOnly="True">
+
+                    </RichTextBox>
+                </Border>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

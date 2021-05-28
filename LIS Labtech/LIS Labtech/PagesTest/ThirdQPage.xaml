@@ -1,0 +1,28 @@
+﻿<Page x:Class="LIS_Labtech.ThirdQPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LIS_Labtech"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ThirdQPage">
+
+    <Grid Background="#8AECBD">
+        <Border MinWidth="400" MaxWidth="500" CornerRadius="20" Margin="30" Background="White" VerticalAlignment="Center" Padding="30">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="60" Color="LightGray" ShadowDepth="1" />
+            </Border.Effect>
+            <StackPanel Width="450" Height="300">
+                <TextBlock x:Name="Quest" Text="Вопрос" FontSize="20" FontWeight="Bold" Margin="0 10 0 30" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+                <RadioButton x:Name="FirstR" Margin="50, 30, 0, 0" Content="Ответ" Checked="FirstR_Checked"/>
+                <RadioButton x:Name="SecondR" Margin="50, 10, 0, 0" Content="Ответ" Checked="SecondR_Checked"/>
+                <RadioButton x:Name="ThirdR" Margin="50, 10, 0, 0" Content="Ответ" Checked="ThirdR_Checked"/>
+                <RadioButton x:Name="FourthtR" Margin="50, 10, 0, 50" Content="Ответ" Checked="FourthtR_Checked"/>
+                <Grid Margin="0 0 0 20">
+                    <Button HorizontalAlignment="Center" VerticalAlignment="Bottom" Content="Дальше" Click="Button_Click" Height="50" Width="150"/>
+                </Grid>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

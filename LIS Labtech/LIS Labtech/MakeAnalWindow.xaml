@@ -1,0 +1,32 @@
+﻿<Window x:Class="LIS_Labtech.MakeAnalWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LIS_Labtech"
+        mc:Ignorable="d"
+       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Лаборант" Height="600" Width="500" Icon="Resources/LisLogo.png" WindowStartupLocation="CenterScreen">
+    <Grid Background="#61D89F">
+        <Border MinWidth="400" MaxWidth="500" CornerRadius="20" Margin="30" Background="White" VerticalAlignment="Center" Padding="30">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="60" Color="LightGray" ShadowDepth="1" />
+            </Border.Effect>
+            <StackPanel>
+                <TextBlock Text="Проведение анализа" FontSize="22" FontWeight="Bold" Margin="0 0 0 30" HorizontalAlignment="Center" />
+                <TextBlock x:Name="TextBlock1" Text="Первый шаг" FontSize="14" FontWeight="Bold" Margin="0 0 0 0" HorizontalAlignment="Left" />
+                <TextBox x:Name="Textbox1" materialDesign:HintAssist.Hint="Введите результат" Margin="0 0 0 15" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                <TextBlock x:Name="TextBlock2" Text="Второй шаг" FontSize="14" FontWeight="Bold" Margin="0 0 0 0" HorizontalAlignment="Left" />
+                <TextBox x:Name="Textbox2" materialDesign:HintAssist.Hint="Введите результат" Margin="0 0 0 15" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                <TextBlock x:Name="TextBlock3" Text="Третий шаг" FontSize="14" FontWeight="Bold" Margin="0 0 0 0" HorizontalAlignment="Left" />
+                <TextBox x:Name="Textbox3" materialDesign:HintAssist.Hint="Введите результат" Margin="0 0 0 15" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                <TextBlock x:Name="TextBlock4" Text="Четвертый шаг" FontSize="14" FontWeight="Bold" Margin="0 0 0 0" HorizontalAlignment="Left" />
+                <TextBox x:Name="Textbox4" materialDesign:HintAssist.Hint="Введите результат" Margin="0 0 0 15" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                <Grid Margin="0 40 0 20">
+                    <Button HorizontalAlignment="Left" Content="Завершить анализ" Height="29" Click="Button_Click_1" VerticalAlignment="Top" />
+                    <Button HorizontalAlignment="Right" Content="Назад" Style="{StaticResource MaterialDesignOutlinedButton}"  Height="29" Click="Button_Click" VerticalAlignment="Bottom"/>
+                </Grid>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

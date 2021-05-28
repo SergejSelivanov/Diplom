@@ -1,0 +1,204 @@
+﻿<Window x:Class="LIS_Labtech.ManagerReportWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LIS_Labtech"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Менеджер по закупкам" Height="550" Width="900" Icon="Resources/LisLogo.png" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid Background="#61D89F">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <!--Profile button-->
+            <Button Grid.Row="0" Click="Button_Click_1">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Height" Value="50"/>
+                        <Setter Property="Background" Value="LightGray"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Ellipse Width="30" Height="30" Stretch="UniformToFill" Stroke="White" StrokeThickness="2">
+                                        <Ellipse.Fill>
+                                            <ImageBrush ImageSource="Resources/AccountLogo.png"/>
+                                        </Ellipse.Fill>
+                                    </Ellipse>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsPressed" Value="True">
+                                            <Setter Property="Background" Value="White"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Separator Grid.Row="0" VerticalAlignment="Bottom" Background="WhiteSmoke" Width="20"/>
+            <Button Grid.Row="8" x:Name="ButtonExit" Click="Button_Click">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Height" Value="50"/>
+                        <Setter Property="Background" Value="LightGray"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Ellipse Width="30" Height="30" Stretch="UniformToFill" Stroke="White" StrokeThickness="2">
+                                        <Ellipse.Fill>
+                                            <ImageBrush ImageSource="Resources/CloseLogo.png"/>
+                                        </Ellipse.Fill>
+                                    </Ellipse>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </Grid>
+        <Grid Grid.Column="1" Background="#8AECBD">
+            <TabControl Margin="10" BorderBrush="Gainsboro">
+                <TabControl.Resources>
+                    <Style TargetType="TabItem">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="TabItem">
+                                    <Border Name="Border" BorderThickness="1,1,1,0" BorderBrush="Gainsboro" CornerRadius="4,4,0,0" Margin="2,0">
+                                        <ContentPresenter x:Name="ContentSite"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"
+                                        ContentSource="Header"
+                                        Margin="10,2"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter TargetName="Border" Property="Background" Value="LightSkyBlue" />
+                                        </Trigger>
+                                        <Trigger Property="IsSelected" Value="False">
+                                            <Setter TargetName="Border" Property="Background" Value="GhostWhite" />
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </TabControl.Resources>
+                <TabItem Header="Реактивы">
+                    <TabItem.Content>
+                        <Grid>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="400"/>
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <ListView Grid.Row="0"  x:Name="listUsers"  VerticalAlignment="Top" SelectionChanged="listUsers_SelectionChanged">
+                                    <ListView.View>
+                                        <GridView>
+                                            <GridViewColumn Header="Название"  DisplayMemberBinding="{Binding Name}"/>
+                                            <GridViewColumn Header="Колличество" DisplayMemberBinding="{Binding Quantity}"/>
+                                            <GridViewColumn Header="Объем"  DisplayMemberBinding="{Binding Volume}"/>
+                                            <GridViewColumn Header="Чистота"   DisplayMemberBinding="{Binding Purity}"/>
+                                            <GridViewColumn Header="Класс"  DisplayMemberBinding="{Binding Class}"/>
+                                        </GridView>
+                                    </ListView.View>
+                                </ListView>
+                                <TextBox x:Name="TextBox1" Grid.Row="1" FontSize="12"  Margin="0, 10, 0 ,0" Width="200" HorizontalAlignment="Left" materialDesign:HintAssist.Hint="Поиск по названию" Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextChanged="TextBox1_TextChanged" />
+                                <Button Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="Button_Click_3" >
+                                    <Button.Style>
+                                        <Style TargetType="{x:Type Button}">
+                                            <Setter Property="Height" Value="50"/>
+                                            <Setter Property="Background" Value="LightGray"/>
+                                            <Setter Property="Cursor" Value="Hand"/>
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="{x:Type Button}">
+                                                        <Ellipse Width="50" Height="50" Stretch="UniformToFill" Stroke="White" StrokeThickness="2">
+                                                            <Ellipse.Fill>
+                                                                <ImageBrush ImageSource="Resources/AddLogo.png"/>
+                                                            </Ellipse.Fill>
+                                                        </Ellipse>
+                                                        <ControlTemplate.Triggers>
+                                                            <Trigger Property="IsPressed" Value="True">
+                                                                <Setter Property="Background" Value="White"/>
+                                                            </Trigger>
+                                                        </ControlTemplate.Triggers>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </Button.Style>
+                                </Button>
+                            </Grid>
+                        </Grid>
+                    </TabItem.Content>
+                </TabItem>
+                <TabItem Header="Материалы">
+                    <TabItem.Content>
+                        <Grid>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="400"/>
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <ListView Grid.Row="0"  x:Name="listUsers1"  VerticalAlignment="Top" SelectionChanged="listUsers1_SelectionChanged">
+                                    <ListView.View>
+                                        <GridView>
+                                            <GridViewColumn Header="Название"  DisplayMemberBinding="{Binding Name}"/>
+                                            <GridViewColumn Header="Колличество" DisplayMemberBinding="{Binding Quantity}"/>
+                                            <GridViewColumn Header="Объем"  DisplayMemberBinding="{Binding Volume}"/>
+                                            <GridViewColumn Header="Форма"   DisplayMemberBinding="{Binding Form}"/>
+                                            <GridViewColumn Header="Тип"  DisplayMemberBinding="{Binding Type}"/>
+                                            <GridViewColumn Header="Назначение"  DisplayMemberBinding="{Binding Nazn}"/>
+                                        </GridView>
+                                    </ListView.View>
+                                </ListView>
+                                <TextBox x:Name="TextBox2" Grid.Row="1" FontSize="12"  Margin="0, 10, 0 ,0" Width="200" HorizontalAlignment="Left"  materialDesign:HintAssist.Hint="Поиск по названию" Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextChanged="TextBox2_TextChanged" />
+                                <Button Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="Button_Click_2">
+                                    <Button.Style>
+                                        <Style TargetType="{x:Type Button}">
+                                            <Setter Property="Height" Value="50"/>
+                                            <Setter Property="Background" Value="LightGray"/>
+                                            <Setter Property="Cursor" Value="Hand"/>
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="{x:Type Button}">
+                                                        <Ellipse Width="50" Height="50" Stretch="UniformToFill" Stroke="White" StrokeThickness="2">
+                                                            <Ellipse.Fill>
+                                                                <ImageBrush ImageSource="Resources/AddLogo.png"/>
+                                                            </Ellipse.Fill>
+                                                        </Ellipse>
+                                                        <ControlTemplate.Triggers>
+                                                            <Trigger Property="IsPressed" Value="True">
+                                                                <Setter Property="Background" Value="White"/>
+                                                            </Trigger>
+                                                        </ControlTemplate.Triggers>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </Button.Style>
+                                </Button>
+                            </Grid>
+                        </Grid>
+                    </TabItem.Content>
+                </TabItem>
+            </TabControl>
+        </Grid>
+    </Grid>
+</Window>

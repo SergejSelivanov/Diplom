@@ -1,0 +1,27 @@
+﻿<Window x:Class="LIS_Labtech.EducationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LIS_Labtech"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Лаборант" Height="550" Width="900" Icon="Resources/LisLogo.png" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="96*"/>
+            <ColumnDefinition Width="421*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Background="#61D89F">
+            <Button x:Name="buttonTheory" Content="Теория" Height="70" Click="buttonTheory_Click"/>
+            <Button x:Name="buttonTest" Content="Тест" Height="70" Click="buttonTest_Click" />
+            <Button x:Name="buttonExit" Content="Выход" Height="70" Click="buttonExit_Click"/>
+        </StackPanel>
+        <Frame
+            x:Name="MainView"
+            Grid.Column="1"
+            NavigationUIVisibility="Hidden"
+            Background="#8AECBD" />
+
+    </Grid>
+</Window>
